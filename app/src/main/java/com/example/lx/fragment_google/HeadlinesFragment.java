@@ -15,6 +15,8 @@ public class HeadlinesFragment extends ListFragment {
 
     OnHeadlineSelectedListener mCallback;
 
+    //fragment和fragment之间的交互必须通过activity中转
+    //fragment和activity之间的交互可通过在fragment中定义接口，在activity中实现该接口
     public interface OnHeadlineSelectedListener{
         public void onArticleSelected(int position);
     }
@@ -37,6 +39,8 @@ public class HeadlinesFragment extends ListFragment {
         }
     }
 
+
+    //fragment在生命周期中的onAttach()方法中获取接口的实现，通过调用接口的方法与activity交互，见onListItemClick
     @Override
     public void onAttach(Activity activity){
         super.onAttach(activity);
